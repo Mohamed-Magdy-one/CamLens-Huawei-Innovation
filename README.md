@@ -33,28 +33,5 @@ By dynamically restructuring on-screen pixels, CamLens compensates for refractiv
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/Mohamed-Magdy-one/CamLens-Huawei-Innovation.git](https://github.com/Mohamed-Magdy-one/CamLens-Huawei-Innovation.git)
+git clone https://github.com/Mohamed-Magdy-one/CamLens-Huawei-Innovation.git
 cd CamLens-Huawei-Innovation
----
-
-## ⌨️ Controls & Calibration Guide
-
-Once the application is running, use the built-in UI tests (Text, Code, UI). For physical lenticular calibration, use the following keyboard shortcuts:
-
-| Action | Shortcut Key | Description |
-| :--- | :---: | :--- |
-| **Enter Calibration** | `F11` | Hides all UI elements and displays a pixel-perfect calibration pattern. |
-| **Adjust Lens Pitch** | `⬅️` / `➡️` | Macro adjustment of the physical lens width (0.1px steps). |
-| **Micro Pitch Adjust** | `⬆️` / `⬇️` | Micro adjustment for removing Moiré patterns (0.01px steps). |
-| **Digital Eye Shift** | `A` / `D` | Shifts the sub-pixel array left/right to change the viewing angle. |
-| **Exit Calibration** | `Esc` | Returns to the main UI and saves calibration metrics. |
-
----
-
-## 🔬 The Physics Behind CamLens
-When a 1D lenticular sheet is placed over a standard LCD display, it acts as an array of magnifying cylindrical lenses. 
-
-Our `interlacer.py` engine cuts the source image into microscopic vertical strips corresponding to the screen's actual PPI (Pixels Per Inch). It then calculates a precise sub-pixel offset map to distribute these strips under the lenticular lenses at specific angles. When the user looks at the screen, the lenses recombine the scrambled strips into a unified, clear, and optically corrected image targeting the user's focal distance.
-
----
-*Built with ❤️ by Team Apex_Coders for the Huawei ICT Innovation Competition.*
