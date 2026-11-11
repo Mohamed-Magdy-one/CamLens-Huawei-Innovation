@@ -2,11 +2,16 @@ import cv2
 import numpy as np
 
 
-def generate_interlaced_image(image_path, pitch_pixels, num_views, shift_step):
+def generate_interlaced_image(image_input, pitch_pixels, num_views, shift_step):
     """
     محرك تقطيع ودمج الصور (Core Engine)
+    يدعم المسارات (str) أو مصفوفات الصور المباشرة (np.ndarray)
     """
-    img = cv2.imread(image_path)
+    if isinstance(image_input, str):
+        img = cv2.imread(image_input)
+    else:
+        img = image_input.copy()
+
     if img is None:
         return None
 
@@ -37,7 +42,6 @@ def generate_calibration_pattern(width, height, pitch_pixels, num_views, shift_s
     pattern = np.zeros((height, width, 3), dtype=np.uint8)
     strip_width = max(0.1, pitch_pixels / num_views)
 
-    # طرح الإزاحة من الأعمدة عشان الخطوط تتحرك يمين وشمال
     cols = np.arange(width) - shift_step
     view_map = np.floor((cols % pitch_pixels) / strip_width).astype(int)
     view_map = np.clip(view_map, 0, num_views - 1)
